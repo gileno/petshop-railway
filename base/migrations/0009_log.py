@@ -18,7 +18,6 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'log',
-                'managed': False,
             },
         ),
     ]
