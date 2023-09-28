@@ -155,5 +155,5 @@ REST_FRAMEWORK = {
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-f187f.up.railway.app'
+    'https://web-production-daf5.up.railway.app'
 ]
