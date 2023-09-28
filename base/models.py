@@ -35,11 +35,3 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f'[{self.telefone}] {self.nome_pet}'
-
-
-class Log(models.Model):
-    mensagem = models.TextField(blank=True, null=True)
-    data = models.DateField(null=True, blank=True)
-
-    class Meta:
-        db_table = 'log'

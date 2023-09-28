@@ -94,6 +94,7 @@ DATABASES = {
 }
 
 # postgresql://usuario:senha@host:5432/nome_do_banco
+# http://www.meusite.com.br/contato
 
 
 # Password validation
