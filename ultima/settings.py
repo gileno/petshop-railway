@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lnrk+(l4gt!h+8=&7%3#*sy!5)mpr@_gb_d&lqb$o#im(ghux*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=True, cast=bool)
+# DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -85,11 +86,14 @@ WSGI_APPLICATION = 'ultima.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    'default': config('DATABASE_URL', default='sqlite:///db.sqlite3', cast=db_url)
 }
+
+# postgresql://usuario:senha@host:5432/nome_do_banco
 
 
 # Password validation
@@ -147,3 +151,8 @@ REST_FRAMEWORK = {
     'DATE_INPUT_FORMATS': ["%d/%m/%Y"],
     'DATE_FORMAT': '%d/%m/%Y'
 }
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-f187f.up.railway.app'
+]
