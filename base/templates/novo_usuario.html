@@ -1,0 +1,12 @@
+{% extends "inicio.html" %}
+{% load bootstrap5 %}
+
+{% block principal %}
+    <h1> Novo Usuário </h1>
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-primary"> Cadastrar </button>
+    </form>
+{% endblock %}

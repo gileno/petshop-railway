@@ -1,0 +1,14 @@
+{% extends "inicio.html" %}
+{% load bootstrap5 %}
+
+{% block principal %}
+    <h1> Login </h1>
+    {% if erro %}
+    <p class="alert alert-danger">{{ erro }}</p>
+    {% endif %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% bootstrap_form formulario %}
+        <button type="submit" class="btn btn-primary"> Logar </button>
+    </form>
+{% endblock %}
